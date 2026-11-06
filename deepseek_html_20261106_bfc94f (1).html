@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07182f">
+  <meta name="description" content="NUEL'S TECHNOLOGIES delivers website development, software, IT support, graphic design, e-commerce and digital solutions.">
+  <title>NUEL'S TECHNOLOGIES | Technology That Moves You Forward</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:#07182f; --navy2:#0b2341; --blue:#377bc1; --blue2:#5ba2ed;
+      --silver:#dce3eb; --silverblue:#afc3d8; --white:#f7f9fc; --muted:#a9b9cc;
+      --line:rgba(190,211,234,.2); --glass:rgba(11,32,57,.72);
+      --shadow:0 24px 70px rgba(0,0,0,.34);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--navy);color:var(--white);font-family:"DM Sans",sans-serif;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    button,input,textarea,select{font:inherit}
+    button,a{ -webkit-tap-highlight-color:transparent}
+    .container{width:min(1160px,calc(100% - 48px));margin:auto}
+    .site-header{position:absolute;z-index:20;top:0;left:0;width:100%;border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{height:82px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+    .brand{display:flex;align-items:center;gap:11px;font:800 17px Manrope,sans-serif;letter-spacing:-.5px;white-space:nowrap}
+    .brand-mark{width:37px;height:37px;display:grid;place-items:center;border:1px solid rgba(174,205,237,.6);border-radius:11px;background:linear-gradient(145deg,#214e7c,#0a1c34);box-shadow:0 0 24px rgba(55,123,193,.22)}
+    .brand-mark svg{width:24px;height:24px}
+    .brand span{color:#d9e4f1}
+    .nav-links{display:flex;align-items:center;gap:34px;color:#c1cede;font-size:13px}
+    .nav-links a{padding:31px 0 27px;position:relative;transition:.25s}
+    .nav-links a:hover,.nav-links a.active{color:#fff}
+    .nav-links a.active:after,.nav-links a:hover:after{content:"";position:absolute;left:0;right:0;bottom:17px;height:2px;background:var(--blue2);box-shadow:0 0 12px var(--blue2)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 22px;border-radius:999px;background:linear-gradient(120deg,#3476b8,#4d91d2);border:1px solid rgba(210,230,250,.48);color:white;font-size:13px;font-weight:700;box-shadow:0 7px 24px rgba(30,104,179,.25);transition:transform .25s,box-shadow .25s;cursor:pointer}
+    .btn:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(55,123,193,.4)}
+    .btn-outline{background:rgba(9,28,50,.45);box-shadow:none;border:1px solid rgba(191,214,239,.45)}
+    .menu-toggle{display:none;background:none;color:white;border:0;font-size:25px;cursor:pointer}
+    
+    /* HERO */
+    .hero{position:relative;min-height:800px;padding:150px 0 100px;overflow:hidden;isolation:isolate;background:
+      radial-gradient(ellipse at 50% 42%,rgba(48,117,177,.32),transparent 43%),
+      radial-gradient(ellipse at 80% 35%,rgba(39,91,145,.25),transparent 32%),
+      linear-gradient(180deg,#07162d 0%,#0a2039 53%,#07182f 100%)}
+    .hero:before{content:"";position:absolute;inset:0;z-index:-1;opacity:.25;background-image:linear-gradient(rgba(158,195,232,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(158,195,232,.07) 1px,transparent 1px);background-size:62px 62px;mask-image:linear-gradient(to bottom,transparent,black 30%,black 78%,transparent)}
+    .ambient{position:absolute;z-index:-1;filter:blur(55px);border-radius:50%;pointer-events:none}
+    .ambient.one{width:420px;height:300px;background:rgba(50,122,190,.24);top:300px;left:-130px}
+    .ambient.two{width:460px;height:300px;background:rgba(58,136,202,.2);top:410px;right:-160px}
+    .hero-copy{text-align:center;position:relative;z-index:3;max-width:940px;margin:auto}
+    .eyebrow{display:flex;align-items:center;justify-content:center;gap:17px;color:#c4d3e4;font:500 italic 22px Manrope,sans-serif;letter-spacing:.2px}
+    .eyebrow:before,.eyebrow:after{content:"";width:55px;height:1px;background:linear-gradient(90deg,transparent,#6c9dcb)}
+    .eyebrow:after{transform:rotate(180deg)}
+    h1{font:800 clamp(42px,6.2vw,76px)/1.04 Manrope,sans-serif;letter-spacing:-3.5px;margin:14px 0 15px}
+    h1 .silver{display:block;color:#e1e8f0;text-shadow:0 5px 24px rgba(160,195,229,.12)}
+    h1 .blue-text{background:linear-gradient(100deg,#91b9e1 4%,#f2f5f9 46%,#6da8e5 88%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero-sub{color:#d0d9e4;font-size:18px;margin:0 auto;max-width:650px}
+    .hero-actions{display:flex;justify-content:center;gap:12px;margin-top:24px}
+    .hero-glow-line{width:170px;height:3px;margin:24px auto 0;background:linear-gradient(90deg,transparent,#72b6f5,transparent);box-shadow:0 0 17px #4a9ce8}
+    
+    /* SERVICE STRIP & METRICS */
+    .hero-lower{position:relative;z-index:8;margin-top:60px}
+    .service-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:900px;margin:0 auto}
+    .service-tile{min-height:120px;text-align:center;padding:14px 10px 12px;border:1px solid rgba(210,225,240,.68);border-radius:15px;background:linear-gradient(145deg,rgba(248,251,255,.97),rgba(208,222,236,.94));color:#122943;box-shadow:0 12px 28px rgba(0,0,0,.23),inset 0 1px 0 white;transition:.28s}
+    .service-tile:nth-child(2){background:linear-gradient(145deg,#235b91,#102b4c);color:#fff;border-color:rgba(125,179,229,.65);box-shadow:0 10px 30px rgba(28,103,174,.24)}
+    .service-tile:hover{transform:translateY(-8px);box-shadow:0 18px 35px rgba(48,125,196,.25)}
+    .tile-icon{width:39px;height:39px;margin:0 auto 7px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#2d78bb,#123d68);color:#fff;box-shadow:0 5px 15px rgba(37,102,163,.3)}
+    .tile-icon svg{width:20px;height:20px}
+    .service-tile strong{display:block;font:700 12px Manrope,sans-serif}
+    .service-tile small{display:block;margin-top:6px;font-size:9px;opacity:.72}
+    .dots{display:flex;justify-content:center;gap:5px;margin-top:9px}
+    .dots i{width:4px;height:4px;background:#397db8;border-radius:50%}
+    
+    .metrics{max-width:900px;margin:22px auto 0;padding:14px 20px;border:1px solid rgba(174,202,231,.27);border-radius:18px;background:linear-gradient(100deg,rgba(11,30,53,.92),rgba(20,48,78,.85));box-shadow:0 15px 35px rgba(0,0,0,.22);display:grid;grid-template-columns:repeat(3,1fr) 1.5fr;align-items:center;gap:8px}
+    .metric{text-align:center;border-right:1px solid rgba(186,209,232,.22)}
+    .metric strong{display:block;color:#d7e5f2;font:800 23px Manrope,sans-serif}
+    .metric span{font-size:10px;color:#b2c2d3}
+    .metrics .btn{justify-self:center;white-space:nowrap;padding:12px 18px}
+    .tagline{display:flex;align-items:center;justify-content:center;gap:18px;margin:28px auto 0;color:#b7c9dc;font:600 14px Manrope,sans-serif;letter-spacing:2px}
+    .tagline:before,.tagline:after{content:"";width:28px;height:2px;background:#5da5e8;box-shadow:0 0 12px #5da5e8}
+    .digital-floor{position:absolute;z-index:-1;bottom:-15px;left:-5%;width:110%;height:180px;background:radial-gradient(ellipse at 55% 100%,rgba(41,115,184,.24),transparent 55%),repeating-linear-gradient(165deg,transparent 0 38px,rgba(89,157,218,.08) 39px 40px);transform:skewY(-5deg)}
+    .digital-floor:after{content:"";position:absolute;right:-3%;bottom:45px;width:52%;height:2px;background:linear-gradient(90deg,transparent,#5aa8ee,white);box-shadow:0 0 18px #5aa8ee;transform:rotate(-12deg)}
+    
+    /* Rest of page */
+    section.content-section{padding:105px 0;position:relative}
+    .section-kicker{color:#70afe9;font-size:11px;letter-spacing:2.5px;font-weight:700;text-transform:uppercase}
+    .section-title{font:800 clamp(30px,4vw,48px)/1.12 Manrope,sans-serif;letter-spacing:-1.6px;margin:13px 0 16px}
+    .section-title span{color:#8bb9e4}
+    .section-intro{color:var(--muted);line-height:1.8;max-width:650px}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+    .about-visual{min-height:370px;position:relative;border:1px solid var(--line);border-radius:24px;background:radial-gradient(circle at 50% 50%,rgba(58,127,190,.3),transparent 55%),linear-gradient(145deg,#102d4c,#08182d);display:grid;place-items:center;overflow:hidden;box-shadow:var(--shadow)}
+    .about-visual:before,.about-visual:after{content:"";position:absolute;border:1px solid rgba(144,190,232,.22);border-radius:50%;width:270px;height:270px}
+    .about-visual:after{width:360px;height:360px}
+    .about-core{width:150px;height:150px;border-radius:35px;display:grid;place-items:center;background:linear-gradient(145deg,#3c83c3,#12375e);box-shadow:0 0 65px rgba(72,151,221,.35);transform:rotate(45deg)}
+    .about-core svg{width:72px;height:72px;transform:rotate(-45deg)}
+    .about-chip{position:absolute;padding:12px 15px;border:1px solid rgba(188,215,240,.25);border-radius:12px;background:rgba(7,24,47,.86);font-size:12px;color:#dbe8f5;box-shadow:0 10px 24px rgba(0,0,0,.22)}
+    .chip-a{top:17%;left:9%}.chip-b{right:8%;top:27%}.chip-c{left:15%;bottom:14%}.chip-d{right:12%;bottom:13%}
+    .services-section{background:linear-gradient(180deg,rgba(14,39,66,.55),rgba(7,24,47,.1));border-top:1px solid rgba(180,207,233,.08);border-bottom:1px solid rgba(180,207,233,.08)}
+    .section-heading{text-align:center;margin-bottom:45px}
+    .section-heading .section-intro{margin:0 auto}
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .service-card{padding:27px;border:1px solid rgba(175,204,232,.16);border-radius:18px;background:linear-gradient(145deg,rgba(21,51,82,.8),rgba(9,28,50,.8));transition:.3s;min-height:220px}
+    .service-card:hover{transform:translateY(-7px);border-color:rgba(104,171,230,.6);box-shadow:0 20px 45px rgba(0,0,0,.22)}
+    .service-card .icon-box{width:47px;height:47px;border-radius:13px;background:linear-gradient(145deg,#3d85c8,#173d66);display:grid;place-items:center;margin-bottom:20px;color:white}
+    .service-card svg{width:23px;height:23px}
+    .service-card h3{font:700 17px Manrope;margin:0 0 10px}
+    .service-card p{font-size:13px;color:var(--muted);line-height:1.7;margin:0}
+    .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:42px}
+    .step{padding:23px;border-top:1px solid #477eae;background:linear-gradient(180deg,rgba(26,62,96,.55),transparent);border-radius:0 0 14px 14px}
+    .step-number{font:800 30px Manrope;color:#6ba7df;opacity:.85}
+    .step h3{font:700 16px Manrope;margin:12px 0 8px}
+    .step p{font-size:13px;line-height:1.7;color:var(--muted)}
+    .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}
+    .project{border:1px solid var(--line);border-radius:17px;overflow:hidden;background:#0c2340}
+    .project-art{height:190px;display:grid;place-items:center;background:radial-gradient(circle at 50% 50%,rgba(83,154,218,.4),transparent 55%),linear-gradient(135deg,#183e63,#091b32);position:relative;overflow:hidden}
+    .project-art:before{content:"";position:absolute;width:70%;height:130px;border:7px solid #9db5cb;border-radius:9px;background:linear-gradient(135deg,#0b1e35,#1e5688);box-shadow:0 18px 25px rgba(0,0,0,.35);transform:perspective(300px) rotateY(-10deg)}
+    .project-art span{position:relative;z-index:1;font:800 17px Manrope;color:#dceafa;text-shadow:0 2px 10px #07182f}
+    .project-info{padding:20px}.project-info small{color:#76b1e8;font-size:10px;letter-spacing:1.5px;text-transform:uppercase}.project-info h3{font:700 17px Manrope;margin:7px 0}.project-info p{color:var(--muted);font-size:13px;line-height:1.6;margin:0}
+    .why-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:38px}
+    .why-item{text-align:center;padding:22px 12px;border:1px solid var(--line);border-radius:15px;background:rgba(14,39,66,.65)}
+    .why-item b{display:block;font-size:13px;margin-top:13px}.why-item svg{width:28px;height:28px;color:#82b9e9}
+    .contact-section{background:linear-gradient(145deg,#0d2a49,#07182f)}
+    .contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:55px;align-items:start}
+    .contact-form{padding:30px;border:1px solid rgba(190,215,239,.2);border-radius:20px;background:rgba(5,20,38,.58);box-shadow:var(--shadow)}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .field{margin-bottom:15px}.field label{display:block;font-size:12px;color:#c6d5e5;margin-bottom:8px}
+    .field input,.field textarea,.field select{width:100%;padding:13px 14px;border-radius:9px;border:1px solid rgba(181,207,232,.2);background:#0b2039;color:white;outline:none}
+    .field input:focus,.field textarea:focus,.field select:focus{border-color:#5b9bd5;box-shadow:0 0 0 3px rgba(55,123,193,.13)}
+    .field textarea{min-height:115px;resize:vertical}
+    .form-note{font-size:11px;color:#8fa5bc;line-height:1.6;margin-top:12px}
+    footer{padding:55px 0 25px;background:#051326;border-top:1px solid rgba(185,210,237,.1)}
+    .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:35px;padding-bottom:38px}
+    .footer-grid p{color:#8fa4bb;font-size:13px;line-height:1.8;max-width:290px}
+    .footer-grid h4{font:700 13px Manrope;margin:5px 0 17px}
+    .footer-grid a{display:block;color:#9fb1c5;font-size:12px;margin:11px 0;transition:.2s}
+    .footer-grid a:hover{color:white}
+    .copyright{padding-top:20px;border-top:1px solid rgba(190,215,239,.12);display:flex;justify-content:space-between;gap:20px;color:#71869d;font-size:11px}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.visible{opacity:1;transform:none}
+    
+    @media(max-width:900px){
+      .nav-links{gap:18px}.hero{min-height:700px}
+      .services-grid{grid-template-columns:repeat(2,1fr)}.about-grid{gap:35px}.why-grid{grid-template-columns:repeat(3,1fr)}
+      .footer-grid{grid-template-columns:1.3fr 1fr 1fr}.footer-grid>div:last-child{grid-column:2}
+    }
+    @media(max-width:650px){
+      .container{width:min(100% - 32px,560px)}.nav{height:70px}.brand{font-size:14px}.brand-mark{width:33px;height:33px}
+      .menu-toggle{display:block}.nav-cta{display:none}
+      .nav-links{display:none;position:absolute;top:70px;left:16px;right:16px;padding:12px 18px;background:#0a2039;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);flex-direction:column;align-items:stretch;gap:0}
+      .nav-links.open{display:flex}.nav-links a{padding:13px 4px}.nav-links a.active:after,.nav-links a:hover:after{bottom:5px;right:auto;width:28px}
+      .hero{padding-top:120px;min-height:auto;padding-bottom:60px}.eyebrow{font-size:15px;gap:10px}.eyebrow:before,.eyebrow:after{width:27px}
+      h1{font-size:clamp(37px,10vw,55px);letter-spacing:-2px;margin:17px 0 13px}.hero-sub{font-size:14px;max-width:360px;padding:0 8px}
+      .hero-actions{gap:8px}.hero-actions .btn{font-size:11px;padding:11px 14px}
+      .hero-lower{margin-top:40px}.service-strip{grid-template-columns:repeat(2,1fr);gap:9px;max-width:390px}
+      .service-tile{min-height:98px;padding:10px 6px}.tile-icon{width:32px;height:32px}.tile-icon svg{width:17px;height:17px}.service-tile strong{font-size:10px}.service-tile small{font-size:8px}
+      .metrics{grid-template-columns:repeat(3,1fr);padding:12px 8px;gap:5px;margin-top:14px}.metric strong{font-size:16px}.metric span{font-size:8px}.metrics .btn{grid-column:1/-1;margin-top:7px;font-size:11px;padding:10px 17px}
+      .tagline{font-size:9px;letter-spacing:1px;gap:8px;margin-top:20px}.tagline:before,.tagline:after{width:15px}
+      section.content-section{padding:72px 0}.about-grid,.contact-grid{grid-template-columns:1fr;gap:30px}.about-visual{min-height:280px;order:-1}.about-core{width:115px;height:115px}.about-core svg{width:55px;height:55px}
+      .services-grid{grid-template-columns:1fr}.service-card{min-height:auto;padding:22px}.process-grid{grid-template-columns:repeat(2,1fr);gap:8px}.step{padding:16px}.portfolio-grid{grid-template-columns:1fr}.project-art{height:170px}
+      .why-grid{grid-template-columns:repeat(2,1fr)}.why-item{padding:17px 8px}.form-row{grid-template-columns:1fr;gap:0}.contact-form{padding:20px}
+      .footer-grid{grid-template-columns:1fr 1fr;gap:22px}.footer-grid>div:first-child{grid-column:1/-1}.footer-grid>div:last-child{grid-column:auto}
+      .copyright{flex-direction:column;gap:8px}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="NUEL'S TECHNOLOGIES home">
+        <span class="brand-mark"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 3.5 27.5 10v12L16 28.5 4.5 22V10L16 3.5Z" stroke="#c9dced" stroke-width="2.4"/><path d="m16 9 6.2 3.5v7L16 23l-6.2-3.5v-7L16 9Z" stroke="#5ba2ed" stroke-width="2.2"/><path d="m16 9 6.2 3.5" stroke="#fff" stroke-width="2.2"/></svg></span>
+        <span>NUEL'S <span>TECHNOLOGIES</span></span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a class="active" href="#home">Home</a><a href="#services">Services</a><a href="#about">About</a><a href="#portfolio">Portfolio</a><a href="#contact">Contact</a>
+      </nav>
+      <a class="btn nav-cta" href="#contact">Get Started <span>→</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="ambient one"></div><div class="ambient two"></div>
+      <div class="container">
+        <div class="hero-copy">
+          <div class="eyebrow">INNOVATION MEETS TECHNOLOGY</div>
+          <h1><span class="blue-text">Transforming Ideas</span><span class="silver">Into Digital Solutions</span></h1>
+          <p class="hero-sub">We build innovative digital experiences, intelligent systems and technology solutions that help businesses grow, compete and succeed in the digital world.</p>
+          <div class="hero-actions"><a class="btn" href="#contact">Get Started <span>→</span></a><a class="btn btn-outline" href="#services">Explore Our Services</a></div>
+          <div class="hero-glow-line"></div>
+        </div>
+
+        <!-- Service Strip & Metrics shifted up -->
+        <div class="hero-lower">
+          <div class="service-strip">
+            <a class="service-tile" href="#services"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><strong>Website Development</strong><small>Modern digital experiences</small><div class="dots"><i></i><i></i><i></i></div></a>
+            <a class="service-tile" href="#services"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m8 8-4 4 4 4m8-8 4 4-4 4m-2-11-4 18"/></svg></div><strong>Software & Systems</strong><small>Intelligent software solutions</small><div class="dots"><i></i><i></i><i></i></div></a>
+            <a class="service-tile" href="#services"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3h2l2.2 12.1a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 2-1.6L22 8H6"/><circle cx="10" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg></div><strong>E-Commerce</strong><small>Sell online with confidence</small><div class="dots"><i></i><i></i><i></i></div></a>
+            <a class="service-tile" href="#services"><div class="tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 14v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="13" width="4" height="7" rx="2"/><rect x="17" y="13" width="4" height="7" rx="2"/><path d="M17 20c-1 2-3 2-5 2"/></svg></div><strong>IT Support</strong><small>Reliable technical assistance</small><div class="dots"><i></i><i></i><i></i></div></a>
+          </div>
+          <div class="metrics">
+            <div class="metric"><strong>500+</strong><span>Projects Completed</span></div>
+            <div class="metric"><strong>98%</strong><span>Client Satisfaction</span></div>
+            <div class="metric"><strong>24/7</strong><span>Support Availability</span></div>
+            <a class="btn" href="#contact">Get Free Quote <span>→</span></a>
+          </div>
+          <div class="tagline">MODERN · INNOVATIVE · SECURE · SCALABLE</div>
+        </div>
+      </div>
+      <div class="digital-floor"></div>
+    </section>
+
+    <section class="content-section" id="about">
+      <div class="container about-grid">
+        <div class="reveal">
+          <div class="section-kicker">Who we are</div>
+          <h2 class="section-title">Technology With Purpose.<br><span>Innovation Without Limits.</span></h2>
+          <p class="section-intro">NUEL'S TECHNOLOGIES helps businesses and individuals make the most of technology. From professional websites and custom software to creative design and dependable IT support, we turn ideas into practical digital experiences.</p>
+          <p class="section-intro">Our approach is simple: understand your goals, build the right solution and help you move forward with confidence.</p>
+          <a class="btn" href="#contact" style="margin-top:15px">Let's Work Together →</a>
+        </div>
+        <div class="about-visual reveal">
+          <div class="about-chip chip-a">Web Development</div><div class="about-chip chip-b">Smart Software</div><div class="about-chip chip-c">Creative Design</div><div class="about-chip chip-d">IT Solutions</div>
+          <div class="about-core"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="2.5"><path d="M32 5 55 18v28L32 59 9 46V18L32 5Z"/><path d="m32 17 12 7v16l-12 7-12-7V24l12-7Z"/><path d="m32 17 12 7"/></svg></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section services-section" id="services">
+      <div class="container">
+        <div class="section-heading reveal"><div class="section-kicker">What we do</div><h2 class="section-title">Technology Solutions <span>For Every Ambition.</span></h2><p class="section-intro">Explore our services and find the right digital tools to bring your next idea to life.</p></div>
+        <div class="services-grid">
+          <article class="service-card reveal"><div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><h3>Website Development</h3><p>Responsive business websites, landing pages and web experiences designed to present your brand professionally.</p></article>
+          <article class="service-card reveal"><div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m8 8-4 4 4 4m8-8 4 4-4 4m-2-11-4 18"/></svg></div><h3>Software Development</h3><p>Custom applications and business systems designed around your workflows, needs and objectives.</p></article>
+          <article class="service-card reveal"><div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 14v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="13" width="4" height="7" rx="2"/><rect x="17" y="13" width="4" height="7" rx="2"/></svg></div><h3>IT Support</h3><p>Computer troubleshooting, maintenance, software installation and practical technical assistance.</p></article>
+          <article class="service-card reveal"><div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20 15 4l5 5L9 20H4Z"/><path d="m13 6 5 5M4 20h16"/></svg></div><h3>Graphic Design</h3><p>Creative logos, brand identities and marketing materials that communicate your message with clarity.</p></article>
+          <article class="service-card reveal"><div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3h2l2.2 12.1a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 2-1.6L22 8H6"/><circle cx="10" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg></div><h3>E-Commerce Development</h3><p>Online stores with product catalogues, shopping experiences and payment integration options.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="process">
+      <div class="container">
+        <div class="section-heading reveal"><div class="section-kicker">How we work</div><h2 class="section-title">From First Idea <span>To Final Delivery.</span></h2><p class="section-intro">A clear, collaborative process keeps your project focused from beginning to launch.</p></div>
+        <div class="process-grid">
+          <div class="step reveal"><div class="step-number">01</div><h3>Discover</h3><p>We learn about your business, goals, audience and project requirements.</p></div>
+          <div class="step reveal"><div class="step-number">02</div><h3>Plan</h3><p>We define the scope, structure and direction for the right solution.</p></div>
+          <div class="step reveal"><div class="step-number">03</div><h3>Develop</h3><p>We design, build and test your solution with care and attention to detail.</p></div>
+          <div class="step reveal"><div class="step-number">04</div><h3>Launch & Delivery</h3><p>We prepare your project for launch, deliver the final product and discuss ongoing support.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section services-section" id="portfolio">
+      <div class="container">
+        <div class="section-heading reveal"><div class="section-kicker">Selected work</div><h2 class="section-title">Ideas Deserve <span>Great Execution.</span></h2><p class="section-intro">A preview area for selected NUEL'S TECHNOLOGIES projects. Replace these sample tiles with your real portfolio work.</p></div>
+        <div class="portfolio-grid">
+          <article class="project reveal"><div class="project-art"><span>BUSINESS WEBSITE</span></div><div class="project-info"><small>Website Development</small><h3>Business Website Experience</h3><p>A clean, responsive web presence designed to introduce a business and its services.</p></div></article>
+          <article class="project reveal"><div class="project-art"><span>SMART SYSTEM</span></div><div class="project-info"><small>Software Development</small><h3>Business Management System</h3><p>A sample showcase for a tailored system that supports everyday business operations.</p></div></article>
+          <article class="project reveal"><div class="project-art"><span>BRAND IDENTITY</span></div><div class="project-info"><small>Graphic Design</small><h3>Creative Brand Presentation</h3><p>A sample showcase for visual identity, brand assets and marketing design.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="why-us">
+      <div class="container">
+        <div class="section-heading reveal"><div class="section-kicker">Why work with us</div><h2 class="section-title">Your Vision. Our Technology. <span>Better Possibilities.</span></h2></div>
+        <div class="why-grid">
+          <div class="why-item reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m12 3 2.2 5.2L20 10l-5.8 1.8L12 17l-2.2-5.2L4 10l5.8-1.8L12 3Z"/><path d="m19 16 .9 2.1L22 19l-2.1.9L19 22l-.9-2.1L16 19l2.1-.9L19 16Z"/></svg><b>Innovative Approach</b></div>
+          <div class="why-item reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h5"/></svg><b>Custom Solutions</b></div>
+          <div class="why-item reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m12 3 8 4v5c0 5-3.4 8-8 9-4.6-1-8-4-8-9V7l8-4Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg><b>Professional Execution</b></div>
+          <div class="why-item reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8m0-12.8L5.6 18.4"/></svg><b>Modern Technology</b></div>
+          <div class="why-item reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 14v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="13" width="4" height="7" rx="2"/><rect x="17" y="13" width="4" height="7" rx="2"/></svg><b>Reliable Support</b></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section contact-section" id="contact">
+      <div class="container contact-grid">
+        <div class="reveal">
+          <div class="section-kicker">Let's talk</div>
+          <h2 class="section-title">Let's Build Something <span>Extraordinary.</span></h2>
+          <p class="section-intro">Have an idea, project or business challenge? Tell us what you are looking to achieve. NUEL'S TECHNOLOGIES would be glad to discuss a solution with you.</p>
+          <p class="section-intro">Complete the inquiry form below and click "Send via WhatsApp" to instantly send us your project details.</p>
+        </div>
+        <form class="contact-form reveal" id="contactForm">
+          <div class="form-row"><div class="field"><label for="name">Full name *</label><input id="name" name="name" required placeholder="Your name"></div><div class="field"><label for="email">Email address *</label><input id="email" name="email" type="email" required placeholder="you@example.com"></div></div>
+          <div class="form-row"><div class="field"><label for="phone">Phone number</label><input id="phone" name="phone" placeholder="+264 ..."></div><div class="field"><label for="service">Service required *</label><select id="service" name="service" required><option value="">Select a service</option><option>Website Development</option><option>Software Development</option><option>IT Support</option><option>Graphic Design</option><option>E-Commerce Development</option></select></div></div>
+          <div class="field"><label for="budget">Estimated budget (optional)</label><input id="budget" name="budget" placeholder="e.g. N$ 5,000"></div>
+          <div class="field"><label for="message">Tell us about your project *</label><textarea id="message" name="message" required placeholder="Describe what you need..."></textarea></div>
+          <button class="btn" type="submit" style="width:100%; justify-content:center;">Get Free Quote <span>➔</span></button>
+          <p class="form-note">This will open WhatsApp with your message pre-filled. Ensure you have replaced the placeholder phone number in the code with your actual business number.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div><a class="brand" href="#home"><span class="brand-mark"><svg viewBox="0 0 32 32" fill="none"><path d="M16 3.5 27.5 10v12L16 28.5 4.5 22V10L16 3.5Z" stroke="#c9dced" stroke-width="2.4"/><path d="m16 9 6.2 3.5v7L16 23l-6.2-3.5v-7L16 9Z" stroke="#5ba2ed" stroke-width="2.2"/></svg></span><span>NUEL'S <span>TECHNOLOGIES</span></span></a><p>Innovative digital experiences, intelligent software and reliable technology solutions for a connected world.</p></div>
+        <div><h4>Explore</h4><a href="#home">Home</a><a href="#about">About Us</a><a href="#portfolio">Portfolio</a><a href="#contact">Contact</a></div>
+        <div><h4>Our Services</h4><a href="#services">Website Development</a><a href="#services">Software Development</a><a href="#services">IT Support</a><a href="#services">Graphic Design</a></div>
+        <div><h4>More Services</h4><a href="#services">E-Commerce Development</a><a href="#contact">Request a Quote</a></div>
+      </div>
+      <div class="copyright"><span>© <span id="year"></span> NUEL'S TECHNOLOGIES. All rights reserved.</span><span>Modern · Innovative · Secure · Scalable</span></div>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      const opened = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(opened));
+      menuToggle.textContent = opened ? '×' : '☰';
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.textContent = '☰';
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    const sections = [...document.querySelectorAll('main section[id]')];
+    const navAnchors = [...document.querySelectorAll('.nav-links a')];
+    const activeObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navAnchors.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
+        }
+      });
+    }, { rootMargin: '-35% 0px -55% 0px' });
+    sections.forEach(section => activeObserver.observe(section));
+
+    // WhatsApp Integration
+    document.getElementById('contactForm').addEventListener('submit', event => {
+      event.preventDefault();
+      const data = new FormData(event.currentTarget);
+      
+      // IMPORTANT: Replace this with your actual WhatsApp number (include country code, no + or spaces)
+      const businessPhone = '264812780914'; 
+
+      const message = `*New Project Inquiry*\n\n` +
+                      `*Name:* ${data.get('name')}\n` +
+                      `*Email:* ${data.get('email')}\n` +
+                      `*Phone:* ${data.get('phone') || 'N/A'}\n` +
+                      `*Service:* ${data.get('service')}\n` +
+                      `*Budget:* ${data.get('budget') || 'Not specified'}\n\n` +
+                      `*Project Details:*\n${data.get('message')}`;
+
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappUrl = `https://wa.me/${businessPhone}?text=${encodedMessage}`;
+      
+      window.open(whatsappUrl, '_blank');
+    });
+  </script>
+</body>
+</html>
